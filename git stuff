@@ -1,0 +1,41 @@
+Great — now that it's all set up, here’s exactly what you need to do from now on to:
+
+---
+
+### ✅ 1. Save Your Work (Push to GitHub)
+
+Whenever you make changes to your project files:
+
+```bash
+git add .
+git commit -m "your meaningful message here"
+git push origin main
+```
+
+This saves your work to GitHub (just like Google Drive for code).
+
+---
+
+### 🚀 2. Deploy to GitHub Pages
+
+After pushing, or anytime you want to update the live website:
+
+```bash
+npm run deploy
+```
+
+This rebuilds your project and publishes it to:
+🔗 [https://sidwah.github.io/mYPortfolio](https://sidwah.github.io/mYPortfolio)
+
+---
+
+### 📝 Quick Summary of Workflow:
+
+| Action                 | Command                        |
+| ---------------------- | ------------------------------ |
+| Track changes          | `git add .`                    |
+| Save changes locally   | `git commit -m "your message"` |
+| Push changes to GitHub | `git push origin main`         |
+| Deploy to GitHub Pages | `npm run deploy`               |
+
+You’re now in full control. Let me know when you want to add routing, pages, or animations!
