@@ -21,6 +21,7 @@ This saves your work to GitHub (just like Google Drive for code).
 After pushing, or anytime you want to update the live website:
 
 ```bash
+npm run build
 npm run deploy
 ```
 
