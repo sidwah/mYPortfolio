@@ -1,0 +1,20 @@
+Let me explain the issue we encountered:
+
+1. **Module System Conflict**: 
+   - Your project is configured to use ES Modules (ESM) as indicated by `"type": "module"` in your `package.json`
+   - However, Tailwind CSS and PostCSS configuration files traditionally use CommonJS syntax (`module.exports`)
+   - This created a conflict because we were trying to use CommonJS syntax (`module.exports`) in files that were being treated as ES Modules
+
+2. **The Solution**:
+   - We renamed the configuration files to use the `.cjs` extension:
+     - `postcss.config.js` → `postcss.config.cjs`
+     - `tailwind.config.js` → `tailwind.config.cjs`
+   - The `.cjs` extension explicitly tells Node.js to treat these files as CommonJS modules, regardless of the project's module type setting
+   - This allows us to keep using the standard CommonJS configuration format that Tailwind CSS and PostCSS expect
+
+3. **Why This Works**:
+   - In Node.js, files with `.cjs` extension are always treated as CommonJS modules
+   - Files with `.js` extension follow the project's module type setting (ESM in your case)
+   - By using `.cjs`, we bypass the ES Module restrictions and can use `module.exports` without issues
+
+This is a common issue when working with modern JavaScript projects that use ES Modules but need to integrate with tools that expect CommonJS configuration files. The `.cjs` extension is the standard way to handle this situation.
