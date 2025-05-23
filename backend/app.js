@@ -67,11 +67,17 @@ app.get('/api', (req, res) => res.json({
   version: '1.0.0',
   endpoints: {
     auth: '/api/auth',
-    projects: '/api/projects', 
-    categories: '/api/categories'
+    subscribers: '/api/subscribers',
+    projects: '/api/projects (coming soon)', 
+    categories: '/api/categories (coming soon)'
   }
 }));
-app.get('/api/auth', (req, res) => res.json({ message: 'Auth routes coming soon' }));
+
+// Mount route files
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/subscribers', require('./routes/subscribers'));
+
+// Placeholder routes (will be replaced in Phase 2)
 app.get('/api/projects', (req, res) => res.json({ message: 'Projects routes coming soon' }));
 app.get('/api/categories', (req, res) => res.json({ message: 'Categories routes coming soon' }));
 
